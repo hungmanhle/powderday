@@ -1,0 +1,308 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ECEFF1;
+}
+.app-header {
+    background-color: #512DA8; /*#283593;*/
+    height: 64px;
+    /* padding: 20px; */
+    display: flex;
+    color: #fafafa;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.app-header > div {
+    margin-right: 0.2rem;
+    padding: 16px;
+    font-weight: 400;
+    font-size: 24px;
+    right: 0px;
+    width: 100%;
+    text-align: right;
+}
+
+@keyframes App-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes collapse-card{
+    from { height: 100%;}
+    to { height: 0%;}
+}
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.weather-card {
+    background-color: #fafafa;
+    max-width: 760px;
+    box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.14), 0 0.0625rem 0.3125rem 0 rgba(0, 0, 0, 0.12), 0 0.1875rem 0.0625rem -0.125rem rgba(0, 0, 0, 0.2);
+    border: 0.0625rem solid #bdbdbd;
+    width: 100%;
+    border-radius: 0.1875rem;
+    margin: 0.5rem 0rem;
+    overflow: hidden;
+    display: block;
+}
+/* .weather-card:hover {
+  animation: collapse-card 2s ease-in;
+  height: 0;
+} */
+
+.weather-card:last-of-type {
+    margin-bottom: 3rem;
+}
+.tutorial-card {
+    display: block;
+    margin:auto;
+    font-style: italic;
+    font-size: 32px;
+    position: absolute;
+    top: 30%;
+    height: 300px;
+    text-align: center;
+    width: 80%;
+    color: #B0BEC5;
+}
+.weather-card-header {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+.weather-card-header > div{
+    display:flex;
+}
+.webcam-button {
+    padding: 0.5em 0;
+    cursor: pointer;
+}
+.delete-button {
+    padding-top: 0.3rem;
+    padding-right: 0.2rem;
+    font-size: 32px;
+    color: #9575CD;
+    cursor: pointer;
+}
+.email-link{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 24px;
+    /* transform: rotate3d(0, 0, 0);
+    transition: transform .25s ease-in;
+  }
+  .email-link:hover {
+    transform: rotate3d(0, 0, 1, -35deg);
+    transition: transform .25s ease-in;
+  }
+  .email-link:active {
+    transform: rotate3d(0, 0, 1, -35deg);
+    transition: transform .25s ease-in; */
+}
+h2 {
+    padding: 0.5em 1em;
+}
+
+.weather-card-inner {
+    display: flex;
+    width: 100%;
+}
+.content-block {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #d3d3d3;
+    padding: 10px 10px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.content-block:last-of-type {
+    border-right: none;
+}
+.data-block-title {
+    padding-left: 0.2rem;
+    text-align: center;
+    height: 60px;
+}
+
+.data-block-subcontent-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+}
+.measurement-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.measurement-row > div {
+    width: 100%;
+    text-align: right;
+}
+.icon img {
+    max-width: 32px;
+}
+.weather-card-day-3,
+.weather-card-day-4,
+.weather-card-day-5,
+.weather-card-day-6 {
+    display: none;
+}
+
+.spinner-div{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.menu {
+    display: block;
+    flex-direction: column;
+    background-color: #311B92;
+    color: #fafafa;
+    border-radius: 5px;
+    padding-top: 64px;
+    top: 0px;
+    left: 0px;
+    position: absolute;      /* Add these */
+    left: -64px;
+    margin: 0;
+    z-index: 3;
+    opacity: 1;
+    font-size: 24px;
+    transform: translate3d(-20rem, 0, 0);
+    transition: transform .25s ease-in-out;
+}
+a:link{
+    text-decoration: none;
+}
+.open {
+    display:flex;
+    opacity: 1;
+    transform: translate3d(1rem, 0, 0);
+    transition: transform .25s ease-in-out;
+}
+.menu li {
+    list-style: none;
+    border-bottom: 1px solid #673AB7;
+    border-top: 1px solid #263238;
+
+    padding: 5px 40px 5px 20px;
+    margin: 0px;
+}
+.menu li div {
+    padding: 5px;
+}
+.menu div {
+    height: 100%;
+    width: 100%;
+}
+.menu li:last-of-type {
+    border-bottom: none;
+}
+.top-level-menu{
+    position: relative;
+    list-style: none;
+}
+
+.add-button {
+    cursor: pointer;
+    z-index:4;
+    font-size: 44px;
+    font-weight: 400;
+    height: 64px;
+    line-height: 64px;
+    transform: rotate3d(0, 0, 1, 0deg);
+    transition: transform .25s ease-in-out;
+}
+.add-button.tilt {
+    transform: rotate3d(0, 0, 1, 45deg);
+    transition: transform .25s ease-in-out;
+}
+/* .add-button:hover {
+  color: #B39DDB;
+} */
+.menu li:hover {
+    cursor: pointer;
+}
+
+.modal-bg {
+    z-index: 1000;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: space-around;
+}
+.modal-card {
+    padding: 0.5em 0.5em;
+    position:relative;
+    margin: 0.25em 0.5em;
+}
+.modal-header{
+    justify-content: flex-end;
+}
+.modal-header > i {
+    padding-top: 0rem;
+    padding-bottom: 0.3rem;
+    padding-right: 0.3rem;
+}
+.modal-image > img {
+    width: 100%;
+}
+@media only screen and (max-width: 400px){
+    .menu{
+        width: 160px;
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width: 760px){
+    .weather-card-day-3,
+    .weather-card-day-4,
+    .weather-card-day-5,
+    .weather-card-day-6 {
+        display: flex;
+    }
+}
+.modal-back-button{
+    position:absolute;
+    top: 40%;
+    left: 2%;
+    font-weight: 900;
+    font-size: 40px;
+    cursor: pointer;
+}
+.modal-forward-button{
+    top: 40%;
+    right: 2%;
+    position: absolute;
+    font-weight: 900;
+    font-size: 40px;
+    cursor: pointer;
+}

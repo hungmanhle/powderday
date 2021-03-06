@@ -26,6 +26,11 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "no-multiple-empty-lines": [
+            "error",
+
+        ],
+        "react/jsx-pascal-case": ["error"],
         "react/react-in-jsx-scope": "off", // not needed because of nextjs
         "indent": [
             "error",
