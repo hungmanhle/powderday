@@ -5,8 +5,8 @@ interface IProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const WrapWithApiData = (OrigComponent: any) => {
-  return class WrappedComponent extends Component<IProps, {data: any}> {
+function WrapWithApiData<TProps>(OrigComponent: any) {
+  return class WrappedComponent extends Component<IProps & TProps, {data: any}> {
     constructor(props: any) {
       super(props);
       this.state = {
@@ -23,12 +23,12 @@ const WrapWithApiData = (OrigComponent: any) => {
         });
     }
     render(){
-      const {apiRoute, ...rest} = this.props;
+      const {...rest} = this.props;
       return(
         <OrigComponent {...this.state.data} {...rest} />
       );
     }
   };
-};
+}
 
 export default WrapWithApiData;

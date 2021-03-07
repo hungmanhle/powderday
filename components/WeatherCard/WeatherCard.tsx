@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import DayBlock from "../DayBlock/DayBlock";
 import Loading from "../Loading/Loading";
 
@@ -11,11 +11,11 @@ const prettyTitle = function (titlestring: string) {
 
 
 interface IProps {
-  days: any[] | null,
-  name: string,
-  webcamUrl: string,
+  days?: any[] | null,
+  name?: string,
+  webcamUrl?: string,
   deleteCard: () => void,
-  openPopup: () => void
+  openPopup: (url: string) => void
 }
 // eslint-disable-next-line react/prop-types
 const WeatherCard = ({ days = null, name, webcamUrl = "", deleteCard, openPopup }: IProps) => {
@@ -65,4 +65,4 @@ const WeatherCard = ({ days = null, name, webcamUrl = "", deleteCard, openPopup 
   );
 };
 
-export default WrapWithApiData(WeatherCard);
+export default WrapWithApiData<IProps>(WeatherCard);

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, ReactElement } from "react";
 import Image from "next/image";
 // const ignore
 
 class DataBlockShort extends Component<{type: string, data: any[]}> {
-  findTotal(arrayOfValues) {
+  findTotal(arrayOfValues: any[]) {
     return arrayOfValues.reduce((a, b) => {
       if (!!parseInt(a, 10) && !!parseInt(b, 10)) {
         return parseInt(a, 10) + parseInt(b, 10);
@@ -13,7 +13,7 @@ class DataBlockShort extends Component<{type: string, data: any[]}> {
       return "-";
     });
   }
-  lolEmoji(lol) {
+  lolEmoji(lol: any): ReactElement | any {
     switch (lol) {
     case "rain":
       return <Image src={"/images/rain.png"} alt='rain' width={32} height={32} />;

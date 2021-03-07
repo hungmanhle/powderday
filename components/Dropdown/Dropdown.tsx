@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Dropdown extends Component<{options: [], selected: string}> {
+class Dropdown extends Component<{options: [], selected: string, onChange: () => void}> {
   render() {
     return (
       <div>

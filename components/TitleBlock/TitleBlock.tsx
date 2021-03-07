@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import ContentBlock from "../ContentBlock";
+import ContentBlock from "../ContentBlock/ContentBlock";
+
 import "./index.css";
 
 class titleBlock extends Component {
