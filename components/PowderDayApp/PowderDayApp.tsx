@@ -135,7 +135,7 @@ class App extends Component<IProps, IState> {
         </ul>
         <div className='content'>
           {this.state.activeMountains.length > 0 && this.state.activeMountains.map((mtn) =>
-            <WeatherCard key={mtn} apiRoute={mtn} deleteCard={this.delCard.bind(this, mtn)} openPopup={this.displayPopup.bind(this)} />
+            <WeatherCard key={mtn} apiRoute={`mountain/${mtn}`} deleteCard={this.delCard.bind(this, mtn)} openPopup={this.displayPopup.bind(this)} />
           )}
           {
             this.state.activeMountains.length === 0 &&

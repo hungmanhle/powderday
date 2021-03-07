@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2020": true
+        "es2020": true,
+        "cypress/globals": true
     },
     "ignorePatterns": [
         ".eslintrc.js",
@@ -23,7 +24,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "cypress"
     ],
     "rules": {
         "no-multiple-empty-lines": [

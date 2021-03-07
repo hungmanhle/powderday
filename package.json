@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "@types/localforage": "^0.0.34",
+    "cheerio": "0.22.0",
     "next": "latest",
+    "node-cache": "^5.1.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -21,15 +24,18 @@
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.21",
+    "@types/cheerio": "0.22.0",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "babel-loader": "^8.2.2",
+    "cypress": "^6.6.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.21.5",

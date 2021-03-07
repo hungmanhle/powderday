@@ -15,8 +15,6 @@ const Layout = ({ children, title = "This is the default title" }: Props): React
     </Head>
     {children}
     <footer>
-      <hr />
-      <span>I&apos;m here to stay (Footer)</span>
     </footer>
   </div>
 );
