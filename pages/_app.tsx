@@ -1,12 +1,13 @@
-import "./style.css";
-import "./animation.css";
-import "./snowapp.css";
-import "./snowapp-codes.css";
+import "../styles/style.css";
+import "../styles/animation.css";
+import "../styles/snowapp.css";
+import "../styles/snowapp-codes.css";
 
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from "next/app";
+import { ReactElement } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return <Component {...pageProps} />;
 }
 
