@@ -3,6 +3,7 @@ import DayBlock from "../DayBlock/DayBlock";
 import Loading from "../Loading/Loading";
 
 import WrapWithApiData from "../../hoc/WrapWithApiData";
+import { SnowLoader } from "../SnowLoader/SnowLoader";
 
 const prettyTitle = function (titlestring: string) {
   const splitStr = titlestring.toLowerCase().split("-");
@@ -53,12 +54,7 @@ const WeatherCard = ({ days = null, name, webcamUrl = "", deleteCard, openPopup 
         </div>
         :
         <div>
-          <div className='weather-card-header'>
-            <div/>
-            <i onClick={deleteCard}
-              className='icon-cancel-circled2 delete-button '></i>
-          </div>
-          <Loading />
+          <SnowLoader/>
         </div>
       }
     </div>
