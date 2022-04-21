@@ -40,7 +40,7 @@ module.exports = {
         ],
         "linebreak-style": [
             "error",
-            "windows"
+            process.platform === 'win32' ? 'windows' : 'unix'
         ],
         "quotes": [
             "error",
@@ -52,5 +52,9 @@ module.exports = {
         ],
         "@typescript-eslint/ban-ts-comment": "off",
         "no-async-promise-executor": "off"
+    },
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
     }
 };

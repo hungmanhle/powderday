@@ -17,16 +17,16 @@ export interface IMountainForecast {
 
 export const performScrape = function (mountain: EnumMountain): Promise<IMountainForecast> {
   const webcamUrl = getWebcamList()[mountain];
-  
+
   return new Promise(async function (resolve) {
     const url = `http://www.snow-forecast.com/resorts/${mountain}/6day/mid`;
 
     const res = await fetch(url);
 
-    if(!res.ok) {
+    if (!res.ok) {
       throw res;
     }
-    
+
     const html = await res.text();
     const $ = cheerio.load(html);
     const createWeatherData = function (dayNodes: Cheerio, timeNodes: Cheerio, snowNodes: Cheerio, rainNodes: Cheerio, tempNodes: Cheerio) {
@@ -40,14 +40,14 @@ export const performScrape = function (mountain: EnumMountain): Promise<IMountai
         const dayForecast = { name: dayText, time: null, snow: null, rain: null, temp: null } as IDayForecast;
         resultObject.days.push(dayForecast);
       });
-  
+
       addTimedNodes(timeNodes, resultObject, "time");
       addTimedNodes(snowNodes, resultObject, "snow");
       addTimedNodes(rainNodes, resultObject, "rain");
       addTimedNodes(tempNodes, resultObject, "temp");
       return resultObject;
     };
-  
+
     const addTimedNodes = function (dataTable: Cheerio, resultObject: IMountainForecast, variableName: string) {
       let tempObj: string[] = [];
       dataTable.each(function (index, item) {
@@ -75,12 +75,12 @@ export const performScrape = function (mountain: EnumMountain): Promise<IMountai
         }
       });
     };
-    
+
     // @ts-ignore
     $(".forecast-table__content").filter(function () {
       // @ts-ignore
       const data = $(this);
-  
+
       const daysTable = data.find(".forecast-table-days");
       // const daysTable = test.first();
       const timesTable = data.find(".forecast-table-time");
@@ -91,13 +91,13 @@ export const performScrape = function (mountain: EnumMountain): Promise<IMountai
       // const rainTable = snowtable.next();
       const tempTable = data.find(".forecast-table-temp").first();
       // const tempTable = rainTable.next();
-  
+
       const days = daysTable.find("td");
       const times = timesTable.find("td");
       const snows = snowtable.find("td");
       const rains = rainTable.find("td");
       const temps = tempTable.find("td");
-  
+
       resolve(createWeatherData(days, times, snows, rains, temps));
     });
   });

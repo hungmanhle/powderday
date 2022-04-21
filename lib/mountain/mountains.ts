@@ -1,18 +1,18 @@
 export enum EnumMountain {
-    WhistlerBlackcomb = "whistler-blackcomb",
-    Apex = "apex",
-    BigWhite = "big-white",
-    Baker = "baker-mountain",
-    Cypress = "cypress-mountain",
-    Fernie = "fernie",
-    Grouse = "grouse-mountain",
-    KickingHorse = "kicking-horse",
-    ManningPark = "manning-park-resort",
-    MtWashington = "mount-washington",
-    SilverStar = "silver-star",
-    SunPeaks = "sun-peaks",
-    RevelStoke = "revelstoke",
-    MtSeymour = "mount-seymour"
+  WhistlerBlackcomb = "whistler-blackcomb",
+  Apex = "apex",
+  BigWhite = "big-white",
+  Baker = "baker-mountain",
+  Cypress = "cypress-mountain",
+  Fernie = "fernie",
+  Grouse = "grouse-mountain",
+  KickingHorse = "kicking-horse",
+  ManningPark = "manning-park-resort",
+  MtWashington = "mount-washington",
+  SilverStar = "silver-star",
+  SunPeaks = "sun-peaks",
+  RevelStoke = "revelstoke",
+  MtSeymour = "mount-seymour"
 }
 
 export type WebcamListType = {
@@ -32,7 +32,7 @@ export function getWebcamList(): WebcamListType {
       "https://common.snow.com/Mtncams/5couloir.jpg",
       "https://common.snow.com/Mtncams/7thliftline.jpg"
     ],
-    [EnumMountain.Cypress] : [
+    [EnumMountain.Cypress]: [
       "https://www.youtube.com/embed/JRf29hXOrzY",
       "https://www.youtube.com/embed/PzJ0bcx6WF0",
       "https://www.youtube.com/embed/_LVo3p1eyGc"],
