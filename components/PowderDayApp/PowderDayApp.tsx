@@ -47,7 +47,7 @@ class App extends Component<IProps, IState> {
   }
   componentDidMount() {
     localforage.getItem<string[]>("activeMountains").then((value) => {
-      console.log("cachedMountains", value);
+      // console.log("cachedMountains", value);
       if (value) { this.setState({ activeMountains: value }); }
     }).catch(function (err) {
       console.log(err);
@@ -58,7 +58,7 @@ class App extends Component<IProps, IState> {
       this.state.activeMountains.findIndex(elem => elem === this.state.mountainList[num]) === -1) {
       localforage.setItem("activeMountains", this.state.activeMountains.concat(this.state.mountainList[num]))
         .then(function (value) {
-          console.log("mountainsCached", value);
+          // console.log("mountainsCached", value);
         }).catch(function (err) {
           console.log(err);
         });
@@ -78,14 +78,14 @@ class App extends Component<IProps, IState> {
     this.setState({ activeMountains: newState },  () => {
       localforage.setItem("activeMountains", this.state.activeMountains)
         .then(function (value) {
-          console.log("mountainsCached", value);
+          // console.log("mountainsCached", value);
         }).catch(function (err) {
           console.log(err);
         });
     });
   }
   navClick = () => {
-    console.log("clicked!");
+    // console.log("clicked!");
     const navMenu = document.getElementsByClassName("menu")[0];
     const addButton = document.getElementsByClassName("add-button")[0];
     let isMouseDown = false;

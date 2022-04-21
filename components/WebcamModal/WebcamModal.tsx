@@ -23,9 +23,9 @@ class WebcamModal extends Component<IProps, { curIndex: number }> {
   render() {
     const currentImage = this.props.imgUrls[Math.abs(this.state.curIndex) % this.props.imgUrls.length];
     const isYtEmbed: boolean = currentImage.indexOf("https://www.youtube.com") > -1;
-    console.log("currentImage", currentImage);
-    console.log("curIndex", this.state.curIndex);
-    console.log("imgurls", this.props.imgUrls);
+    // console.log("currentImage", currentImage);
+    // console.log("curIndex", this.state.curIndex);
+    // console.log("imgurls", this.props.imgUrls);
     return (
       <div className='modal-bg'>
         <div className='modal-card weather-card'>
