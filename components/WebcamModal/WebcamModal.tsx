@@ -14,13 +14,13 @@ class WebcamModal extends Component<IProps, { curIndex: number }> {
     this.incIndex = this.incIndex.bind(this);
     this.decIndex = this.decIndex.bind(this);
   }
-  incIndex() {
+  incIndex(): void {
     this.setState(function (prevState) { return { curIndex: prevState.curIndex + 1 }; });
   }
-  decIndex() {
+  decIndex(): void {
     this.setState(function (prevState) { return { curIndex: prevState.curIndex - 1 }; });
   }
-  render() {
+  render(): React.ReactNode {
     const currentImage = this.props.imgUrls[Math.abs(this.state.curIndex) % this.props.imgUrls.length];
     const isYtEmbed: boolean = currentImage.indexOf("https://www.youtube.com") > -1;
     // console.log("currentImage", currentImage);

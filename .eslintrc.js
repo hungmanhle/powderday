@@ -52,8 +52,5 @@ module.exports = {
         ],
         "@typescript-eslint/ban-ts-comment": "off",
         "no-async-promise-executor": "off"
-    },
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
     }
 };

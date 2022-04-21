@@ -45,7 +45,7 @@ class App extends Component<IProps, IState> {
       popup: ""
     };
   }
-  componentDidMount() {
+  componentDidMount(): void {
     localforage.getItem<string[]>("activeMountains").then((value) => {
       // console.log("cachedMountains", value);
       if (value) { this.setState({ activeMountains: value }); }
@@ -53,37 +53,34 @@ class App extends Component<IProps, IState> {
       console.log(err);
     });
   }
-  addCard(num: number) {
+  addCard(num: number): void {
     if (this.state.activeMountains.length === 0 ||
       this.state.activeMountains.findIndex(elem => elem === this.state.mountainList[num]) === -1) {
       localforage.setItem("activeMountains", this.state.activeMountains.concat(this.state.mountainList[num]))
-        .then(function () {
-        }).catch(function (err) {
+        .catch(function (err) {
           console.log(err);
         });
       this.setState({ activeMountains: this.state.activeMountains.concat(this.state.mountainList[num]) });
     }
   }
-  displayPopup(url: string) {
+  displayPopup(url: string): void {
     this.setState({ popup: url });
   }
-  closePopup(){
+  closePopup(): void{
     this.setState({popup: null});
   }
-  delCard(card: string) {
+  delCard(card: string): void {
     const cardIndex = this.state.activeMountains.findIndex(mtn => mtn === card);
     const newState = this.state.activeMountains.slice();
     newState.splice(cardIndex, 1);
     this.setState({ activeMountains: newState },  () => {
       localforage.setItem("activeMountains", this.state.activeMountains)
-        .then(function (value) {
-          // console.log("mountainsCached", value);
-        }).catch(function (err) {
+        .catch(function (err) {
           console.log(err);
         });
     });
   }
-  navClick = () => {
+  navClick = (): void => {
     // console.log("clicked!");
     const navMenu = document.getElementsByClassName("menu")[0];
     const addButton = document.getElementsByClassName("add-button")[0];
@@ -110,7 +107,7 @@ class App extends Component<IProps, IState> {
     }, true);
 
   }
-  debounce = (e: any) => {
+  debounce = (e: any): void => {
     if (e.target.classList.contains("add-button")) { return; }
     const navMenu = document.getElementsByClassName("menu")[0];
     const addButton = document.getElementsByClassName("add-button")[0];
@@ -121,7 +118,7 @@ class App extends Component<IProps, IState> {
       addButton.classList.remove("tilt");
     }
   }
-  render() {
+  render(): React.ReactNode {
     return (
       <div className="App" onClick={this.debounce}>
         <header className="app-header">
