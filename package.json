@@ -1,10 +1,10 @@
 {
-  "name": "with-typescript",
+  "name": "Powderday",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "node ./node_modules/next/bin/next start",
+    "start": "next start",
     "type-check": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
