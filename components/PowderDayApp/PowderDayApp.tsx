@@ -57,8 +57,7 @@ class App extends Component<IProps, IState> {
     if (this.state.activeMountains.length === 0 ||
       this.state.activeMountains.findIndex(elem => elem === this.state.mountainList[num]) === -1) {
       localforage.setItem("activeMountains", this.state.activeMountains.concat(this.state.mountainList[num]))
-        .then(function (value) {
-          // console.log("mountainsCached", value);
+        .then(function () {
         }).catch(function (err) {
           console.log(err);
         });
