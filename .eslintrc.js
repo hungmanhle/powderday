@@ -49,6 +49,8 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "@typescript-eslint/ban-ts-comment": "off",
+        "no-async-promise-executor": "off"
     }
 };
