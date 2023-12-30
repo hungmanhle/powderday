@@ -17,7 +17,7 @@ interface IProps {
 
 interface IState {
   mountainList: string[],
-  activeMountains: string []
+  activeMountains: string[]
   popup: string | null
 }
 
@@ -66,14 +66,14 @@ class App extends Component<IProps, IState> {
   displayPopup(url: string): void {
     this.setState({ popup: url });
   }
-  closePopup(): void{
-    this.setState({popup: null});
+  closePopup(): void {
+    this.setState({ popup: null });
   }
   delCard(card: string): void {
     const cardIndex = this.state.activeMountains.findIndex(mtn => mtn === card);
     const newState = this.state.activeMountains.slice();
     newState.splice(cardIndex, 1);
-    this.setState({ activeMountains: newState },  () => {
+    this.setState({ activeMountains: newState }, () => {
       localforage.setItem("activeMountains", this.state.activeMountains)
         .catch(function (err) {
           console.log(err);
@@ -140,7 +140,7 @@ class App extends Component<IProps, IState> {
           }
         </div>
         <a href='mailto:hungmle38@gmail.com' className='email-link'>💌</a>
-        {this.state.popup && <WebcamModal imgUrls={this.state.popup} closeFunc={this.closePopup.bind(this)}/>}
+        {this.state.popup && <WebcamModal imgUrls={this.state.popup} closeFunc={this.closePopup.bind(this)} />}
       </div>
     );
   }
