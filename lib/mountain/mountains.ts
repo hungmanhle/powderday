@@ -34,8 +34,10 @@ export function getWebcamList(): WebcamListType {
     ],
     [EnumMountain.Cypress]: [
       "https://www.youtube.com/embed/JRf29hXOrzY",
-      "https://www.youtube.com/embed/PzJ0bcx6WF0",
-      "https://www.youtube.com/embed/_LVo3p1eyGc"],
+      "https://www.youtube.com/embed/GTQQdQ8VVKI",
+      "https://www.youtube.com/embed/ibQoLZ94nM8",
+      "https://www.youtube.com/embed/DXyS3CxYtw0"],
+      
     [EnumMountain.BigWhite]: [
       "http://www.bigwhite.com/images/webcams/desktop/snowghost.jpg?" + Date.now(),
       "http://www.bigwhite.com/images/webcams/full/village.jpg?" + Date.now(),

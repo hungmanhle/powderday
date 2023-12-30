@@ -41,33 +41,33 @@ export const performScrape = function (mountain: EnumMountain): Promise<IMountai
         resultObject.days.push(dayForecast);
       });
 
-      addTimedNodes(timeNodes, resultObject, "time");
-      addTimedNodes(snowNodes, resultObject, "snow");
-      addTimedNodes(rainNodes, resultObject, "rain");
-      addTimedNodes(tempNodes, resultObject, "temp");
+      addTimedNodes(timeNodes, resultObject, "time", timeNodes.length);
+      addTimedNodes(snowNodes, resultObject, "snow", snowNodes.length);
+      addTimedNodes(rainNodes, resultObject, "rain", rainNodes.length);
+      addTimedNodes(tempNodes, resultObject, "temp", tempNodes.length);
       return resultObject;
     };
 
-    const addTimedNodes = function (dataTable: Cheerio, resultObject: IMountainForecast, variableName: string) {
+    const addTimedNodes = function (dataTable: Cheerio, resultObject: IMountainForecast, variableName: string, len: number) {
       let tempObj: string[] = [];
       dataTable.each(function (index, item) {
         const text = $(item).text();
         tempObj.push(text);
         // console.log(dataTable.length);
         // console.log(j.length);
-        if (dataTable.length % 3 == 0 && (index + 1) % 3 == 0) {
+        if (len % 3 == 0 && (index + 1) % 3 == 0) {
           // normal flow...
           // @ts-ignore
           (resultObject.days[((index + 1) / 3) - 1])[variableName] = tempObj;
           tempObj = [];
         }
-        else if (dataTable.length + 1 % 3 == 0 && (index + 2) % 3 == 0) {
+        else if ((len + 1) % 3 == 0 && (index + 2) % 3 == 0) {
           // missing AM
           // @ts-ignore
           (resultObject.days[((index + 2) / 3) - 1])[variableName] = tempObj;
           tempObj = [];
         }
-        else if (dataTable.length + 2 % 3 == 0 && (index + 3) % 3 == 0) {
+        else if ((len + 2) % 3 == 0 && (index + 3) % 3 == 0) {
           // missing AM+PM
           // @ts-ignore
           (resultObject.days[((index + 3) / 3) - 1])[variableName] = tempObj;
@@ -81,15 +81,15 @@ export const performScrape = function (mountain: EnumMountain): Promise<IMountai
       // @ts-ignore
       const data = $(this);
 
-      const daysTable = data.find(".forecast-table-days");
+      const daysTable = data.find(".forecast-table__row[data-row=days]");
       // const daysTable = test.first();
-      const timesTable = data.find(".forecast-table-time");
+      const timesTable = data.find(".forecast-table__row[data-row=time]");
       // const timesTable = daysTable.next();
-      const snowtable = data.find(".forecast-table-snow");
+      const snowtable = data.find(".forecast-table__row[data-row=snow]");
       // const snowtable = timesTable.nextUntil('.forecast-table__row').next('.forecast-table__row');
-      const rainTable = data.find(".forecast-table-rain");
+      const rainTable = data.find(".forecast-table__row[data-row=rain]");
       // const rainTable = snowtable.next();
-      const tempTable = data.find(".forecast-table-temp").first();
+      const tempTable = data.find(".forecast-table__row[data-row=temperature-max]").first();
       // const tempTable = rainTable.next();
 
       const days = daysTable.find("td");
